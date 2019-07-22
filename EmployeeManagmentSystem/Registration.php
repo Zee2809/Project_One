@@ -43,6 +43,13 @@ body{
 }
 </style>
 
+<!-- javascript file  -->
+<script type="text/javascript" src="javascript.js"></script>
+
+
+</head>
+
+
 <body>
 <?php require_once 'uu.php'?>
 
@@ -69,32 +76,30 @@ body{
 
     <h4 class="H4">New Employee's Personal Details</h4>
     <label>First Name:</label>
-    <input text="text" name="First_Name" placeholder="Employee's name"><br><br>
+    <input text="text" id="First_Name" name="First_Name" placeholder="Employee's name"><br><br>
 
     <label>Second Name:</label>
-    <input text="text" name="Second_Name" placeholder="Employees Surname" ><br><br>
+    <input text="text" id="Second_Name" name="Second_Name" placeholder="Employees Surname" ><br><br>
 
     <label> Home Address:</label>
-    <input text="text" name="Home_Address" placeholder="Employees Address"><br><br>
+    <input text="text" id="Home_Address" name="Home_Address" placeholder="Employees Address"><br><br>
 
     <label>Contact Numbers:</label>
-    <input text="text"  name="Contact_Numbers" placeholder="Employees contact"><br><br>
+    <input text="text" id="Contact_Numbers" name="Contact_Numbers" placeholder="Employees contact"><br><br>
 
     <label>Email Address:</label>
-    <input text="text" name="Email_Address" placeholder="Employees Email"><br><br>
+    <input text="text" id="Email_Address" name="Email_Address" placeholder="Employees Email"><br><br>
 
     <label>Gender:</label>
-    <input text="text" name="Gender" placeholder="Gender"><br><br>
+    <input text="text" id="Gender" name="Gender" placeholder="Gender"><br><br>
 
     <label>Job Position:</label>
-    <input text="text" name="Job_Position" placeholder="Job Position"><br><br>
+    <input text="text" id="Job_Position" name="Job_Position" placeholder="Job Position"><br><br>
 
     <label>Next Of Keen:</label>
-    <input text="text" name="Family_Member" placeholder="Next Of Keen"><br><br>
-
-    <button type="submit" name="Save_Employee" class="btn btn-success">Add Employee</button>
-    
-
+    <input text="text" id="Family_Member" name="Family_Member" placeholder="Next Of Keen"><br><br>
+   
+    <button type="submit" id="Save_Employee" name="Save_Employee" onclick= "Save_Employee_Click()" class="btn btn-success">Add Employee</button>
 </form>
 </div>     
 

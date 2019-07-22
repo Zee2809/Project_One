@@ -1,3 +1,7 @@
+<?php
+include 'Login.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,12 +52,15 @@ body{
 
       <!--Form-->
       <div class="Card Card-Form">
-      <form>
+      <form action="Login.php" method="POST" >
       <h1>Log Into Your Account</h1>
-      <input text="text" name="Username_Email" placeholder="Username or Email"><br><br>
-      <input text="text" name="Passoword" placeholder="Password"><br><br>
-      <button style="background-color:grey;  border-radius: 8px;"  name="Login">Log In</button><br><br>
+      <input type="text" name="User" id="User" placeholder="Username or Email" required><br><br>
+      
+      <input type="password"  name="Pass" id="Pass" placeholder="Password" required><br><br>
+      <input type="submit" style="background-color:grey;  border-radius: 8px;" name = "Login" value="Login"><br><br>
       <a href="ForgotPassword.html" class="Spacing">Forgot Password</a>
+      <a href="Create.php" class=create>Create New Account<a>
+    
      </form>
       </div>
    
