@@ -24,9 +24,11 @@ if ($conn->query($sql)=== TRUE) {
   header("Location:Home.php");
        exit(); 
  } 
+ 
  else {
  echo "Error:" . $sql . "<br>" .$conn->error;
  }}
+ 
 
 //CREATE PAGE
 if (isset($_POST['create'])){
@@ -47,7 +49,12 @@ if ($conn->query($sql)=== TRUE) {
  exit();
  } 
  else {
-
  echo "Error:" . $sql . "<br>" .$conn->error;
- }}
+ }
+}
 ?>
+
+
+
+
+

@@ -54,10 +54,13 @@ body{
       <div class="Card Card-Form">
       <form action="Login.php" method="POST" >
       <h1>Log Into Your Account</h1>
-      <input type="text" name="User" id="User" placeholder="Username or Email" required><br><br>
-      
+      <input type="text" name="User" id="User" placeholder="Username" required><br><br>
+      <input type="text" name="Email" id="Email" placeholder="Email" required><br><br>
       <input type="password"  name="Pass" id="Pass" placeholder="Password" required><br><br>
       <input type="submit" style="background-color:grey;  border-radius: 8px;" name = "Login" value="Login"><br><br>
+
+
+
       <a href="ForgotPassword.html" class="Spacing">Forgot Password</a>
       <a href="Create.php" class=create>Create New Account<a>
     

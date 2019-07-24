@@ -76,28 +76,28 @@ body{
 
     <h4 class="H4">New Employee's Personal Details</h4>
     <label>First Name:</label>
-    <input text="text" id="First_Name" name="First_Name" placeholder="Employee's name"><br><br>
+    <input text="text" id="First_Name" name="First_Name" placeholder="Employee's name" required><br><br>
 
     <label>Second Name:</label>
-    <input text="text" id="Second_Name" name="Second_Name" placeholder="Employees Surname" ><br><br>
+    <input text="text" id="Second_Name" name="Second_Name" placeholder="Employees Surname"  required><br><br>
 
     <label> Home Address:</label>
-    <input text="text" id="Home_Address" name="Home_Address" placeholder="Employees Address"><br><br>
+    <input text="text" id="Home_Address" name="Home_Address" placeholder="Employees Address" required><br><br>
 
     <label>Contact Numbers:</label>
-    <input text="text" id="Contact_Numbers" name="Contact_Numbers" placeholder="Employees contact"><br><br>
+    <input text="text" id="Contact_Numbers" name="Contact_Numbers" placeholder="Employees contact" required><br><br>
 
     <label>Email Address:</label>
-    <input text="text" id="Email_Address" name="Email_Address" placeholder="Employees Email"><br><br>
+    <input text="text" id="Email_Address" name="Email_Address" placeholder="Employees Email" required><br><br>
 
     <label>Gender:</label>
-    <input text="text" id="Gender" name="Gender" placeholder="Gender"><br><br>
+    <input text="text" id="Gender" name="Gender" placeholder="Gender" required><br><br>
 
     <label>Job Position:</label>
-    <input text="text" id="Job_Position" name="Job_Position" placeholder="Job Position"><br><br>
+    <input text="text" id="Job_Position" name="Job_Position" placeholder="Job Position" required><br><br>
 
     <label>Next Of Keen:</label>
-    <input text="text" id="Family_Member" name="Family_Member" placeholder="Next Of Keen"><br><br>
+    <input text="text" id="Family_Member" name="Family_Member" placeholder="Next Of Keen" required><br><br>
    
     <button type="submit" id="Save_Employee" name="Save_Employee" onclick= "Save_Employee_Click()" class="btn btn-success">Add Employee</button>
 </form>
