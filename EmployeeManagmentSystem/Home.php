@@ -119,8 +119,12 @@
 <td>
           <a href="delete.php?Registration_id=<?php echo $row['Registration_id'];?>"
          class="btn btn-sm-delete btn-outline-danger" name="Delete">Delete</a>
-        <td> <button type="button" class="btn btn-sm btn-outline-success">Edit</button></td>
-</td>
+         </td>
+        <td> 
+        <a href="Update.php?Registration_id=<?php echo $row['Registration_id'];?>"
+        class="btn btn-sm btn-outline-success"  name="Edit" >Edit</button></a>
+        </td>
+
 </tr>
   <?php endwhile ?>
   </table>

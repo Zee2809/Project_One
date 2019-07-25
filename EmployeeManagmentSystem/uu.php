@@ -33,11 +33,11 @@ if ($conn->query($sql)=== TRUE) {
 //CREATE PAGE
 if (isset($_POST['create'])){
     $Username=($_POST['Username']);
-     $Surname=($_POST['Surname']);
-     $Email=($_POST['Email']);
-     $Contact=($_POST['Contact']);
-     $Passsword=($_POST['Passsword']);
-     $Confirm_password=($_POST['Confirm_password']);
+    $Surname=($_POST['Surname']);
+    $Email=($_POST['Email']);
+    $Contact=($_POST['Contact']);
+    $Passsword=($_POST['Passsword']);
+    $Confirm_password=($_POST['Confirm_password']);
  
  //Inserting values into database
  $sql= "INSERT INTO CreateAccount(Username,Surname,Email,Contact,Passsword,Confirm_password) 
