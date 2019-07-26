@@ -23,7 +23,6 @@ include 'Login.php';
     padding-bottom:2%;
     border-radius: 10px;
 }
-
 .Spacing{
     padding-left: 10%;
     padding-right:10%;

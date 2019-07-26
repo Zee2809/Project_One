@@ -1,3 +1,57 @@
+<?php
+// include database connection file
+include_once 'connect.php';
+
+// Check if form is submitted for user update, then redirect to homepage after update
+
+if(isset($_POST['Update']))
+{	
+    $id=$_POST['Registration_id'];
+	$First_Name=$_POST['First_Name'];
+	$Second_Name=$_POST['Second_Name'];
+    $Home_Address=$_POST['Home_Address'];
+    $Contact_Numbers=$_POST['Contact_Numbers'];
+    $Email_Address=$_POST['Email_Address'];
+    $Gender=$_POST['Gender'];
+    $Job_Position=$_POST['Job_Position']; 
+    $Family_Member=$_POST['Family_Member']; 
+
+	// update user data
+    //$result = mysqli_query($mysqli, "UPDATE Registration SET First_Name='$First_Name',Second_Name='$Second_Name',Home_Address='$Home_Address' ,Contact_Numbers='$Contact_Numbers',Email_Address='$Email_Address',Gender='$Gender',Job_Position='$Job_Position',Family_Member='$Family_Member' WHERE Registration_id=$Registration_id");
+    
+    $sql = "UPDATE Registration SET First_Name='$First_Name',Second_Name ='$Second_Name' , Home_Address= '$Home_Address' , Contact_Numbers= '$Contact_Numbers' , Email_Address= '$Email_Address' , Gender= '$Gender' , Job_Position= '$Job_Position' , Family_Member= '$Family_Member'
+            WHERE Registration_id = '$id' ";
+
+    $query = mysqli_query($conn,$sql);
+	// Redirect to homepage to display updated user in list
+    header("Location: Home.php");
+}
+?>
+
+<?php
+// Display selected user data based on id
+// Getting id from url
+$id = $_GET['Registration_id'];
+
+// Fetech user data based on id
+$sql2 = "SELECT * FROM Registration WHERE Registration_id = '$id' ";
+
+$result=mysqli_query($conn,$sql2);
+
+while ($row = mysqli_fetch_array($result))
+{
+    $First_Name = $row['First_Name'];
+	$Second_Name = $row['Second_Name'];
+    $Home_Address = $row['Home_Address'];
+    $Contact_Numbers = $row['Contact_Numbers'];
+    $Email_Address = $row['Email_Address'];
+    $Gender = $row['Gender'];
+    $Job_Position = $row['Job_Position']; 
+    $Family_Member = $row['Family_Member'];
+}
+?>
+
+
 
 
 <!DOCTYPE html>
@@ -78,82 +132,33 @@ body{
 
     <h4 class="H4">New Employee's Personal Details</h4>
     <label>First Name:</label>
-    <input text="text" id="First_Name" name="First_Name" placeholder="Employee's name" required value="<?php echo $First_Name;?>"> <br><br>
+    <input text="text" id="First_Name" name="First_Name" placeholder="Employee's name" required value="<?php echo $First_Name;?>"><br><br>
 
     <label>Second Name:</label>
-    <input text="text" id="Second_Name" name="Second_Name" placeholder="Employees Surname"  required  value="<?php echo  $Second_Name;?>" ><br><br>
+    <input text="text" id="Second_Name" name="Second_Name" placeholder="Employees Surname"  required  value="<?php echo $Second_Name;?>"> <br><br>
 
     <label> Home Address:</label>
-    <input text="text" id="Home_Address" name="Home_Address" placeholder="Employees Address" required  value="<?php echo $Home_Address;?>" ><br><br>
+    <input text="text" id="Home_Address" name="Home_Address" placeholder="Employees Address" required  value="<?php echo $Home_Address;?>"> <br><br>
 
     <label>Contact Numbers:</label>
-    <input text="text" id="Contact_Numbers" name="Contact_Numbers" placeholder="Employees contact" required  value="<?php echo $Contact_Numbers;?>" ><br><br>
+    <input text="text" id="Contact_Numbers" name="Contact_Numbers" placeholder="Employees contact" required  value="<?php echo $Contact_Numbers;?>"> <br><br>
 
     <label>Email Address:</label>
-    <input text="text" id="Email_Address" name="Email_Address" placeholder="Employees Email" required value="<?php echo $Email_Address?>"><br><br>
+    <input text="text" id="Email_Address" name="Email_Address" placeholder="Employees Email" required value="<?php echo $Email_Address;?>"> <br><br>
 
     <label>Gender:</label>
-    <input text="text" id="Gender" name="Gender" placeholder="Gender" required   value="<?php echo  $Gender;?>"><br><br>
+    <input text="text" id="Gender" name="Gender" placeholder="Gender" required   value="<?php echo $Gender;?>"> <br><br>
 
     <label>Job Position:</label>
-    <input text="text" id="Job_Position" name="Job_Position" placeholder="Job Position" required   value="<?php echo  $Job_Position;?>"><br><br>
+    <input text="text" id="Job_Position" name="Job_Position" placeholder="Job Position" required   value="<?php echo $Job_Position;?>"><br><br>
 
     <label>Next Of Keen:</label>
-    <input text="text" id="Family_Member" name="Family_Member" placeholder="Next Of Keen" required   value="<?php echo  $Family_Member;?>"><br><br>
+    <input text="text" id="Family_Member" name="Family_Member" placeholder="Next Of Keen" required   value="<?php echo $Family_Member;?>"><br><br>
    
-    <button type="submit" id="Edit" name="Edit" onclick= "Edit()" class="btn btn-success">Update</button>
+   <td><input type="hidden" name="Registration_id" value= "<?php echo $_GET['Registration_id'];?>"></td>
+    <button type="submit" id="Update" name="Update" class="btn btn-success">Update</button>
 </form>
 </div>     
-
-
-
-
-<?php
-include "connect.php";
-
-
-if(isset($_GET['Edit'])){
-     $id=($_POST['Registration_id']);
-     $First_Name=($_POST['First_Name']);
-     $Second_Name=($_POST['Second_Name']);
-     $Home_Address=($_POST['Home_Address']);
-     $Contact_Numbers=($_POST['Contact_Numbers']);
-     $Email_Address=($_POST['Email_Address']);
-     $Gender=($_POST['Gender']);
-     $Job_Position=($_POST['Job_Position']);
-     $Family_Member=($_POST['Family_Member']);
- 
-
-$sql = "UPDATE Registration SET First_Name = '$First_Name' , Second_Name = '$Second_Name' , Home_Address = '$Home_Address' , Contact_Numbers = '$Contact_Numbers' ,Email_Address = '$Email_Address' , Gender = '$Gender' ,   Job_Position = '$Job_Position', Family_Member='$Family_Member' WHERE Registration_id='$id' ";
-
-$query = mysqli_query($conn,$sql);
- header('location:Home.php');
-?>
-
-<?php
-
-$id=$_GET['Registration_id'];
-$sql2="SELECT * FROM Registration WHERE Registration_id= $id";
-
-$result=mysqli_query($conn,$sql2);
-
-while($row= mysqli_fetch_array($result))
-{
-     $First_Name = $row['First_Name'];
-     $Second_Name = $row['Second_Name'];
-     $Home_Address = $row['Home_Address'];
-     $Contact_Numbers = $row['Contact_Numbers'];
-     $Email_Address = $row['Email_Address'];
-     $Gender = $row['Gender'];
-     $Job_Position = $row['Job_Position'];
-     $Family_Member = $row['Family_Member'];
-}
-
-}
-?>
-
-
-
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
